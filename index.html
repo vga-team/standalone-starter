@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <base href="." />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VGA Standalone Starter</title>
+    <title>VGA App</title>
     <script type="module" src="./lib/vga-core.js"></script>
     <script type="module" defer>
-      const visHost = document.querySelector("vga-core");
-      const config = await fetch("./app.vgaconf.json").then((response) =>
-        response.json()
-      );
-      visHost.config = config;
+        const vgaCore = document.querySelector("vga-core");
+        const config = await fetch("./app.vgaconf.json").then((response) =>
+            response.json()
+        );
+        vgaCore.configBaseUrl = location.href;
+        vgaCore.config = config;
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <vga-core></vga-core>
-  </body>
+</body>
+
 </html>
